@@ -168,3 +168,13 @@ jobs:
           S3_REGION: ${{ secrets.S3_REGION }}
           GITHUB_ACTIONS: true
         run: uv run python -m trendradar
+
+      - name: Push matched topics to Bitable
+        if: success()
+        env:
+          FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
+          FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
+          BITABLE_APP_TOKEN: ${{ secrets.BITABLE_APP_TOKEN }}
+          BITABLE_TABLE_ID: ${{ secrets.BITABLE_TABLE_ID }}
+        run: python3 bitable_bridge.py
+

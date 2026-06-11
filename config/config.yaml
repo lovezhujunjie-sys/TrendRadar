@@ -99,6 +99,9 @@ platforms:
     - id: "zhihu"
       name: "知乎"
       expected_domain: "zhihu.com"
+    - id: "kuaishou"
+      name: "快手"
+      expected_domain: "kuaishou.com"
 
 
 
